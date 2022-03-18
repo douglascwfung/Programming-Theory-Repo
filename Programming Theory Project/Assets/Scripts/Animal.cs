@@ -19,14 +19,14 @@ public class Animal : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         animalRB = GetComponent<Rigidbody>();
 
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
 
         //if (Input.GetKeyDown(KeyCode.Space))
@@ -44,7 +44,7 @@ public class Animal : MonoBehaviour
     }
 
 
-    void Walk()    
+    protected void Walk()    
     {
          //Debug.Log("Walk");
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -56,23 +56,23 @@ public class Animal : MonoBehaviour
         {
             animalRB.AddForce(Vector3.right * speed);
         }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {            
-            animalRB.AddForce(Vector3.forward * speed);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            animalRB.AddForce(Vector3.back * speed);
-        }
+        // if (Input.GetKey(KeyCode.UpArrow))
+        // {            
+        //     animalRB.AddForce(Vector3.forward * speed);
+        // }
+        // if (Input.GetKey(KeyCode.DownArrow))
+        // {
+        //     animalRB.AddForce(Vector3.back * speed);
+        // }
     }
     
-    void Jump()
+    protected void Jump()
     {        
         animalRB.AddForce(Vector3.up * jumpforce);
         
     }
 
-    void Jump(float extraPower)
+    protected void Jump(float extraPower)
     {
         animalRB.AddForce(Vector3.up * jumpforce * extraPower);        
     }
